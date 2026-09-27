@@ -1,11 +1,86 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="theme-color" content="#f8f5ee"/><title>游戏制作人 · 这一季听谁的</title>  <script type="module" crossorigin src="/assets/index-Cbv9ar4X.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D2kDG0zt.css">
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="theme-color" content="#f8f5ee"/><title>游戏制作人 · 这一季听谁的</title>  <script type="module" crossorigin src="/assets/index-D6DWsk4k.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CmjF2cXc.css">
 <style>
-        html,body,#root{min-height:100%;margin:0}body{background:#f8f5ee}
-        .entry-boot{min-height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;color:#28251f;font-family:system-ui,-apple-system,"PingFang SC",sans-serif;text-align:center;animation:entry-boot-reveal .22s .28s both}
-        .entry-boot-mark{display:grid;place-items:center;width:48px;height:48px;border:1px solid #a38769;border-radius:12px;color:#8a4d35;font-family:"Songti SC",serif;font-size:25px;font-weight:700}
-        .entry-boot strong{font-size:18px;letter-spacing:.12em}.entry-boot small{color:#756d61;font-size:12px;letter-spacing:.08em}
-        .entry-boot button{margin-top:8px;padding:9px 15px;border:1px solid #a38769;border-radius:8px;background:#fffaf2;color:#673b2c;font:inherit;font-size:13px}.entry-boot button[hidden]{display:none}
-        @keyframes entry-boot-reveal{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.entry-boot{animation:none}}
-      </style></head><body><div id="root"><div class="entry-boot" role="status" aria-live="polite"><span class="entry-boot-mark" aria-hidden="true">谋</span><strong>游戏制作人模拟器</strong><small>正在进入游戏…</small><button type="button" hidden onclick="location.reload()">重新加载</button></div></div><script>setTimeout(()=>{const button=document.querySelector(".entry-boot button");if(button)button.hidden=false},12000)</script></body></html>
+        html,body,#root{min-height:100%;margin:0}body{background:#b18468}
+        .cover-boot-pre{position:relative;box-sizing:border-box;width:100%;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);overflow:hidden;background:#b18468}
+        .cover-boot-pre .cover-host{position:relative;width:100%;height:100%;overflow:hidden}
+        .cover-boot-pre .cover-stage{position:absolute;width:850px;transform-origin:top left;isolation:isolate}
+        .cover-boot-pre [data-cover-part]{position:absolute;max-width:none;pointer-events:none}
+        .cover-boot-start{position:absolute;left:166px;display:flex;align-items:center;justify-content:center;gap:22px;width:517px;height:138px;padding:0;border:0;background:none;color:#fff5d9;font:900 67px/1 "Home Serif",serif;letter-spacing:3px;white-space:nowrap;cursor:pointer}
+        .cover-boot-start img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+        .cover-boot-start span,.cover-boot-start b{position:relative;pointer-events:none}
+        .cover-boot-start span{transform:translateY(-2px)}.cover-boot-start b{font:700 75px/1 serif;transform:translateY(-5px)}
+        .cover-boot-start:disabled{cursor:progress}.cover-boot-start:disabled span{font-size:48px}
+        .cover-boot-start:focus-visible{outline:5px solid #eab657;outline-offset:5px}
+        .cover-boot-pre .cover-stage button{border:0;background:none;box-shadow:none;cursor:pointer;font-family:"Home Serif",serif;line-height:1;color:#203340;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+        .cover-boot-pre .cover-stage button:focus-visible,.cover-boot-pre .cover-boot-music:focus-visible{outline:5px solid #eab657;outline-offset:5px}
+        .cover-boot-pre .cover-stage button[data-pending="true"]{filter:brightness(.88)}
+        .cover-boot-pre .cover-stage .cover-boot-start{color:#fff5d9}
+        .cover-boot-load{position:absolute;left:249px;width:354px;display:flex;align-items:center;justify-content:center;padding:0}
+        .cover-boot-load-visual{position:absolute;left:0;right:0;height:88px;display:flex;align-items:center;justify-content:center;pointer-events:none}
+        .cover-boot-load-visual img{position:absolute;inset:0;width:100%;height:100%}
+        .cover-boot-load-visual span{position:relative;font-size:39px;font-weight:700;letter-spacing:4px}
+        .cover-boot-small{position:absolute;display:flex;align-items:center;padding:0;font-size:27px;font-weight:600}
+        .cover-boot-settings{left:253px;width:93px}.cover-boot-handbook{left:438px;width:167px}
+        .cover-boot-small-visual{position:absolute;left:0;height:44px;display:flex;align-items:center;gap:9px;pointer-events:none}
+        .cover-boot-small-visual img{width:35px;height:36px;object-fit:contain}
+        .cover-boot-handbook img{width:38px;height:35px}
+        .cover-boot-divider{position:absolute;left:393px;width:2px;height:30px;background:#334449}
+        .cover-boot-music{position:absolute;z-index:2;top:9px;right:9px;display:grid;place-items:center;width:48px;height:48px;padding:0;border:0;background:none;color:#173954;cursor:pointer}
+        .cover-boot-music::before{content:"";position:absolute;inset:4px;border:1.5px solid #173954;border-radius:50%;background:#f6eddc}
+        .cover-boot-music-glyph{position:relative;display:grid;place-items:center;width:30px;height:30px}.cover-boot-music svg{width:23px;height:23px;fill:currentColor}
+        .cover-boot-music[data-muted="true"]{color:#52697c}.cover-boot-music[data-muted="true"]::before{border-color:#52697c;background:#f2eadb}
+        .cover-boot-music[data-muted="true"]::after{content:"";position:absolute;width:26px;height:2px;border-radius:2px;background:#52697c;transform:rotate(-46deg)}
+        .cover-boot-panel{position:fixed;box-sizing:border-box;left:50%;top:auto;bottom:calc(182px + env(safe-area-inset-bottom));transform:translateX(-50%);margin:0;width:min(340px,calc(100vw - 32px));min-height:122px;padding:24px 24px 15px;border:0;background-color:#f6f0df;background-image:url('/assets/home-v10/scrollTop-173aeb1211571f1f.webp'),url('/assets/home-v10/scrollBottom-2c6232204697c094.webp'),url('/assets/home-v10/scrollMiddle-195c6ed3ffb08391.webp');background-position:center top,center bottom,center;background-size:100% auto,100% auto,100% 100%;background-repeat:no-repeat;color:#203c42;box-shadow:0 13px 30px #17232166}
+        .cover-boot-panel::backdrop{background:#14272270}
+        .cover-boot-panel strong{display:block;padding-right:32px;font:700 21px/1.4 "Home Serif",serif;letter-spacing:1px}
+        .cover-boot-panel button{position:absolute;right:8px;top:7px;display:grid;place-items:center;width:40px;height:40px;border:0;background:none;color:#39565a;font:26px/1 serif;cursor:pointer}.cover-boot-panel button:focus-visible{outline:2px solid #315a4d;outline-offset:-4px}
+        .cover-boot-track{display:block;height:4px;margin:12px 24px 8px 0;overflow:hidden;border-radius:4px;background:#d7cdb6}.cover-boot-track i{display:block;width:32%;height:100%;border-radius:4px;background:#426c58;animation:cover-boot-progress 1.45s ease-in-out infinite}
+        .cover-boot-panel small{font:13px/1.2 "Home Serif",serif;color:#667773}@keyframes cover-boot-progress{from{transform:translateX(-110%)}to{transform:translateX(330%)}}@media(prefers-reduced-motion:reduce){.cover-boot-track i{animation:none;width:100%}}
+        .cover-boot-retry{position:absolute;z-index:3;left:8px;bottom:8px;min-height:32px;padding:4px 8px;border:1px solid #ead99b;border-radius:7px;background:#f8f1dd;color:#183b31;font:700 12px system-ui,sans-serif;white-space:nowrap;cursor:pointer}.cover-boot-retry[hidden]{display:none}
+      </style></head><body><div id="root"><main class="cover-boot-pre" aria-label="游戏启动首页"><div class="cover-host"><div class="cover-stage" id="cover-boot-stage"><img data-cover-part="top" src="/assets/entry-responsive/cover-top-d2843e011e457c8f.webp" alt="" fetchpriority="high"><img data-cover-part="wall" src="/assets/entry-responsive/cover-wall-de2a814f3eaa3ebd.webp" alt="" fetchpriority="high"><img data-cover-part="hero" src="/assets/entry-responsive/cover-hero-9dc820d6325c4bd8.webp" alt="" fetchpriority="high"><img data-cover-part="door" src="/assets/entry-responsive/cover-door-d5082f89270836d6.webp" alt="" fetchpriority="high"><img data-cover-part="desk" src="/assets/entry-responsive/cover-desk-c8e962e3c8c596c6.webp" alt="" fetchpriority="high"><img data-cover-part="props" src="/assets/entry-responsive/cover-props-aca16753dc1e540b.webp" alt="" fetchpriority="high"><button class="cover-start cover-control cover-boot-start" type="button" data-boot-action data-action="start" onclick="window.__sanmouQueueCoverAction(this.dataset.action,this)"><img src="/assets/entry-responsive/cover-start-410883e3ebdbd83b.webp" alt=""><span>开始游戏</span><b aria-hidden="true">›</b></button><button class="cover-load cover-control cover-boot-load" type="button" data-boot-action data-action="load" onclick="window.__sanmouQueueCoverAction(this.dataset.action,this)"><div class="cover-boot-load-visual"><img src="/assets/entry-responsive/cover-load-7c61da7cd6748446.webp" alt=""><span>读取存档</span></div></button><button class="cover-settings cover-small cover-boot-small cover-boot-settings" type="button" data-boot-action data-action="settings" onclick="window.__sanmouQueueCoverAction(this.dataset.action,this)"><div class="cover-boot-small-visual"><img src="/assets/cover-audition/settings-fffb4545f9da6b38.webp" alt=""><span>设置</span></div></button><span class="cover-boot-divider" aria-hidden="true"></span><button class="cover-handbook cover-small cover-boot-small cover-boot-handbook" type="button" data-boot-action data-action="handbook" onclick="window.__sanmouQueueCoverAction(this.dataset.action,this)"><div class="cover-boot-small-visual"><img src="/assets/cover-audition/handbook-4c10787d91287199.webp" alt=""><span>制作人手册</span></div></button></div><button class="cover-boot-music" type="button" data-bgm-toggle role="switch" aria-label="背景音乐" aria-checked="true" data-muted="false" title="背景音乐已开启，点击画面后播放" onclick="window.__sanmouToggleBootMusic(this)"><span class="cover-boot-music-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3v12.26a4.5 4.5 0 1 0 3 4.24V6h4V3h-7Z"/></svg></span></button><dialog class="cover-boot-panel" id="cover-boot-panel" aria-labelledby="cover-boot-panel-title" oncancel="delete window.__sanmouCoverPendingAction"><button type="button" aria-label="取消加载" onclick="delete window.__sanmouCoverPendingAction;this.closest('dialog').close()">×</button><strong id="cover-boot-panel-title" role="status" aria-live="polite">正在打开设置…</strong><span class="cover-boot-track" aria-hidden="true"><i></i></span><small>准备好后自动打开</small></dialog><button class="cover-boot-retry" type="button" hidden onclick="location.reload()">重新加载</button></div></main></div><script>(function(){
+        const stage=document.getElementById('cover-boot-stage'),host=stage.parentElement,start=stage.querySelector('.cover-boot-start'),load=stage.querySelector('.cover-boot-load'),loadVisual=stage.querySelector('.cover-boot-load-visual'),smalls=stage.querySelectorAll('.cover-boot-small'),divider=stage.querySelector('.cover-boot-divider'),music=document.querySelector('.cover-boot-music');
+        const parts=Object.fromEntries(Array.from(stage.querySelectorAll('[data-cover-part]')).map(img=>[img.dataset.coverPart,img]));
+        const layout=function coverLayout(width, height) {
+  const scale = width / 850, H = height / scale;
+  const hit = 44 / scale;
+  const footHit = H - hit - 8, footer = footHit + (hit - 44) / 2;
+  const loadHeight = Math.max(88, hit), loadHit = footHit - loadHeight - 10;
+  const load = loadHit + (loadHeight - 88) / 2, start = loadHit - 148;
+  const shift = Math.max(0, (H - 1850) * 0.32);
+  const deskTop = start - 16, propsTop = deskTop - 150;
+  return { scale, height: H, shift, start, load, footer, loadHit, footHit, hit, deskTop, propsTop };
+},boxesForCover=function coverArtworkBoxes(l) {
+  const deskTop = Math.min(1440 + l.shift, l.deskTop);
+  return {
+    top: [0, 0, 850, 410],
+    wall: [0, 410, 850, 40 + l.shift],
+    hero: [0, 450 + l.shift, 850, 990],
+    door: [648, 393 + l.shift, 202, 57],
+    desk: [0, deskTop, 850, l.height - deskTop],
+    props: [0, l.propsTop, 850, 482]
+  };
+};
+        const musicKey="sanmou:bgm-muted:v1";
+        function paintMusic(muted){music.dataset.muted=String(muted);music.setAttribute('aria-checked',String(!muted));music.title=muted?'开启背景音乐':'背景音乐已开启，点击画面后播放';}
+        let muted=false;try{muted=localStorage.getItem(musicKey)==='1'}catch{}paintMusic(muted);
+        window.__sanmouToggleBootMusic=function(){muted=!muted;try{localStorage.setItem(musicKey,muted?'1':'0')}catch{}paintMusic(muted)};
+        let pendingPanelTimer;
+        window.__sanmouQueueCoverAction=function(action,button){window.__sanmouCoverPendingAction=action;
+          clearTimeout(pendingPanelTimer);
+          document.querySelectorAll('[data-boot-action]').forEach(item=>item.dataset.pending=String(item===button));
+          if(action==='start'){button.disabled=true;button.querySelector('span').textContent='正在进入游戏…';return;}
+          const name={load:'存档',settings:'设置',handbook:'制作人手册'}[action],panel=document.getElementById('cover-boot-panel');
+          panel.querySelector('strong').textContent='正在打开'+name+'…';
+          pendingPanelTimer=setTimeout(()=>{if(window.__sanmouCoverPendingAction===action&&panel.isConnected&&!panel.open)panel.showModal()},300);};
+        function place(){const w=host.clientWidth||innerWidth,h=host.clientHeight||innerHeight,l=layout(w,h);
+          stage.style.height=l.height+'px';stage.style.transform='scale('+l.scale+')';stage.style.left=(w-850*l.scale)/2+'px';stage.style.top='0';
+          const boxes=boxesForCover(l);
+          for(const [key,box] of Object.entries(boxes)){const img=parts[key];img.style.left=box[0]+'px';img.style.top=box[1]+'px';img.style.width=box[2]+'px';img.style.height=box[3]+'px';}
+          start.style.top=l.start+'px';load.style.top=l.loadHit+'px';load.style.height=Math.max(88,l.hit)+'px';loadVisual.style.top=(l.load-l.loadHit)+'px';
+          for(const button of smalls){button.style.top=l.footHit+'px';button.style.height=Math.max(44,l.hit)+'px';button.querySelector('.cover-boot-small-visual').style.top=(l.footer-l.footHit)+'px';}
+          divider.style.top=(l.footer+5)+'px';}
+        place();addEventListener('resize',place);
+        setTimeout(()=>{const button=document.querySelector('.cover-boot-retry');if(button)button.hidden=false},12000);
+      })()</script></body></html>
